@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Putri Nabilah | Portofolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Outfit:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #121212;
+            --accent: #ff4d00;
+            --bg: #f5f5f5; 
+            --text-muted: #555;
+            --about-bg: #d4d4d4; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+
+        body { 
+            background: var(--bg); 
+            color: var(--primary); 
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%;
+            padding: 25px 5%; display: flex; justify-content: space-between;
+            align-items: center; z-index: 100; 
+            background: rgba(245, 245, 245, 0.85); 
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        
+        .logo { 
+            font-family: 'Space Grotesk'; 
+            font-weight: 700; 
+            font-size: 22px; 
+            letter-spacing: 1px; 
+            text-transform: uppercase;
+        }
+        .logo span { color: var(--accent); }
+
+        .nav-links a { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 12px; margin-left: 30px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+
+        .hero {
+            display: grid; grid-template-columns: 1fr 1fr;
+            height: 100vh; padding: 0 5%; align-items: center; gap: 60px;
+        }
+        
+        .hero-text h1 {
+            font-family: 'Space Grotesk'; 
+            font-size: clamp(2.2rem, 4.5vw, 3.8rem); 
+            line-height: 1.05; 
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--primary);
+            min-height: 2.2em;
+        }
+
+        #typing-text::after {
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 0.8em;
+            background-color: var(--accent);
+            margin-left: 8px;
+            vertical-align: middle;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-text p {
+            font-size: 16px; color: var(--text-muted); line-height: 1.8;
+            text-align: justify; max-width: 480px; border-top: 2px solid var(--primary); padding-top: 25px;
+        }
+
+        .hero-img {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .hero-img img { 
+            width: 400px; 
+            height: 400px; 
+            object-fit: cover; 
+            border-radius: 50%; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12); 
+            transition: 0.5s ease;
+        }
+        .hero-img img:hover { 
+            transform: scale(1.03); 
+            box-shadow: 0 30px 60px rgba(255, 77, 0, 0.18); 
+        }
+
+        section { padding: 80px 5%; } 
+        #work { padding-top: 40px; } 
+
+        .section-header {
+            display: flex; justify-content: space-between; align-items: flex-end;
+            margin-bottom: 50px; border-bottom: 2px solid var(--primary); padding-bottom: 20px;
+        }
+        .section-header h2 { font-family: 'Space Grotesk'; font-size: 40px; text-transform: uppercase; }
+
+        .project-list {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        .project-item {
+            border-bottom: 1px solid #c8c8c8; 
+            padding-bottom: 30px;
+            transition: 0.4s;
+        }
+        .project-item:hover { border-color: var(--accent); }
+        .project-item span { font-size: 12px; color: var(--accent); font-weight: 700; }
+        .project-item h3 { font-family: 'Space Grotesk'; font-size: 22px; margin: 10px 0; }
+        .project-item p { font-size: 14px; color: var(--text-muted); text-align: justify; margin-bottom: 20px; line-height: 1.7; }
+
+        .btn-action {
+            display: inline-flex; align-items: center; gap: 10px;
+            text-decoration: none; color: var(--primary); font-weight: 700; font-size: 12px;
+            transition: 0.3s;
+        }
+        .btn-action:hover { color: var(--accent); padding-left: 10px; }
+
+        #about {
+            background: var(--about-bg) !important; 
+            color: var(--primary) !important;
+        }
+
+        .split-grid {
+            display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
+        }
+        .edu-box { margin-bottom: 30px; }
+        .edu-box b { font-size: 18px; display: block; }
+        .edu-box small { color: var(--accent); font-weight: 700; }
+
+        .exp-item {
+            margin-bottom: 50px; border-left: 3px solid #b0b0b0;
+            padding-left: 30px; transition: 0.3s;
+        }
+        .exp-item:hover { border-left-color: var(--accent); }
+        .exp-item h4 { font-family: 'Space Grotesk'; font-size: 20px; margin-bottom: 15px; }
+        
+        .exp-list { list-style: disc; padding-left: 20px; }
+        .exp-list li { font-size: 14px; color: var(--text-muted); margin-bottom: 10px; text-align: justify; line-height: 1.6; }
+
+        footer {
+            padding: 80px 5% 50px 5%; 
+            background: var(--bg); 
+            display: flex; justify-content: space-between; align-items: center;
+            border-top: 1px solid rgba(0,0,0,0.05); 
+        }
+        .social-icons a { color: var(--primary); font-size: 20px; margin-right: 20px; transition: 0.3s; display: inline-block; }
+        .social-icons a:hover { color: var(--accent); }
+
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; height: auto; padding-top: 120px; padding-bottom: 50px; text-align: center; }
+            .hero-img { justify-content: center; order: -1; }
+            .hero-img img { width: 300px; height: 300px; }
+            .hero-text h1 { font-size: 2.5rem; min-height: auto; }
+            .hero-text p { margin: 0 auto; }
+            .split-grid { grid-template-columns: 1fr; }
+            #work { padding-top: 20px; }
+            footer { flex-direction: column; gap: 30px; text-align: center; }
+            .social-icons a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body id="home">
+
+    <nav>
+        <div class="logo">PUTRI NABILAH<span></span></div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#work">Project</a>
+            <a href="#about">About</a>
+            <a href="#lets-connect">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1 id="typing-text"></h1>
+            <p>
+                Mahasiswa aktif S1 Prodi Pendidikan Teknologi Informasi Universitas Negeri Surabaya yang memiliki minat dalam pengembangan media pembelajaran berbasis teknologi. Aktif merancang dan mengembangkan berbagai proyek sebagai bentuk penerapan teknologi untuk menciptakan pengalaman belajar yang lebih efektif dan inovatif.
+            </p>
+        </div>
+        <div class="hero-img">
+            <img src="My.jpeg" alt="Putri Nabilah">
+        </div>
+    </section>
+
+    <section id="work">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+            <p style="font-size: 13px; font-weight: 600;">(06 SELECTED WORKS)</p>
+        </div>
+        
+        <div class="project-list">
+            <div class="project-item">
+                <span>SOCIAL / ACADEMY</span>
+                <h3>Humanitarian Academy DDV Jawa Timur</h3>
+                <p>Program pelatihan intensif yang berfokus pada pengembangan kompetensi dalam perancangan dan pengelolaan program sosial secara komprehensif. Mencakup kemampuan melakukan social mapping untuk menganalisis kebutuhan komunitas, menyusun perencanaan dan desain program yang berkelanjutan, serta merancang strategi fundraising dan proposal sponsorship yang efektif. Selain itu, pelatihan ini juga mengasah kemampuan dalam melakukan kaji dampak untuk mengevaluasi keberhasilan program, serta penerapan desain grafis dalam menghasilkan media komunikasi yang informatif dan menarik</p>
+                <a href="DDV Humanitarian.pdf" class="btn-action" target="_blank">DOWNLOAD SERTIFIKAT <i class="fa-solid fa-file-pdf"></i></a>
+            </div>
+
+            <div class="project-item">
+                <span>JAVA / DESKTOP</span>
+                <h3>Aplikasi Mini-MoCinema</h3>
+                <p>Aplikasi Mini-Mocinema dirancang untuk memenuhi kebutuhan kasir berbasis desktop yang dikembangkan menggunakan Java untuk membantu pengelolaan penjualan tiket pada bioskop mini. Aplikasi ini dilengkapi dengan fitur autentikasi pengguna (admin dan kasir), manajemen data film, jadwal, studio, serta proses transaksi tiket yang terintegrasi dengan sistem perhitungan otomatis dan pencetakan struk, sehingga membuat operasional lebih efisien dan terstruktur</p>
+                <a href="https://github.com/Safinatullatifah/mocinema" class="btn-action" target="_blank">DOWNLOAD GITHUB <i class="fa-brands fa-github"></i></a>
+            </div>
+
+            <div class="project-item">
+                <span>DATA / ANALYTICS</span>
+                <h3>Mini Cource Data Analytics</h3>
+                <p>Program ini membekali pemahaman mengenai pengolahan dan analisis data hingga interpretasi hasil untuk menghasilkan insight yang relevan dalam pengambilan keputusan berbasis data.</p>
+                <a href="DAMC_itsputrinabilah@gmail.com_DAMC-20102025-01-1-00633.pdf" class="btn-action" target="_blank">DOWNLOAD SERTIFIKAT <i class="fa-solid fa-file-pdf"></i></a>
+            </div>
+
+            <div class="project-item">
+                <span>DIGITAL PUBLISHING</span>
+                <h3>Modul Ajar Basis Data (EPUB)</h3>
+                <p>Merancang dan mengembangkan modul pembelajaran digital berbasis EPUB pada mata pelajaran Basis Data yang dilengkapi dengan media interaktif seperti video, audio, serta LKPD. Modul dirancang secara sistematis untuk meningkatkan pemahaman konsep melalui penyajian materi yang terstruktur dan interaktif.</p>
+                <a href="https://drive.google.com/file/d/1bulPfi2D3S3sGGYyl-yAIME_oFjznQqA/view?usp=sharing" class="btn-action" target="_blank">DOWNLOAD EPUB <i class="fa-solid fa-book-open"></i></a>
+            </div>
+
+            <div class="project-item">
+                <span>WEB / E-COMMERCE</span>
+                <h3>Website NesaSport</h3>
+                <p>Merancang platform e-commerce berbasis website yang dikembangkan untuk memfasilitasi kebutuhan sportwear Fakultas Ilmu Keolahragaan dan Kesehatan (FIKK) Universitas Negeri Surabaya (UNESA). Website ini berafiliasi dengan brand lokal untuk menyediakan perlengkapan olahraga berkualitas mulai dari sepatu, pakaian, hingga aksesoris dengan pengalaman belanja yang modern, cepat, dan intuitif.</p>
+                <a href="sertifikat_EC002025191545 - Mohammad Wildan Habibi S.Pd., M.Pd., dkk - Nesa Sport.pdf" class="btn-action" target="_blank">DOWNLOAD HKI<i class="fa-solid fa-file-pdf"></i></a>
+            </div>
+
+            <div class="project-item">
+                <span>SYSTEM / EDUCATION</span>
+                <h3>Aplikasi SIPENMIN</h3>
+                <p>Aplikasi SIPENMIN (Sistem Pendaftaran dan Peminatan Calon Siswa Baru) dirancang untuk mendigitalisasi proses penerimaan siswa secara lebih terstruktur dan terintegrasi. Aplikasi ini menyediakan fitur lengkap mulai dari pembuatan akun, pengisian formulir, unggah berkas, hingga pengumuman hasil seleksi, serta dilengkapi dengan sistem pengelolaan data dan validasi oleh pihak sekolah, sehingga proses menjadi lebih efisien, akurat, dan terorganisir</p>
+                <a href="https://jurnal.kopusindo.com/index.php/jtpp//article/view/1266" class="btn-action" target="_blank">DOWNLOAD JURNAL<i class="fa-solid fa-file-pdf"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="split-grid">
+            <div>
+                <h2 style="font-family: 'Space Grotesk'; font-size: 40px; margin-bottom: 40px; border-bottom: 2px solid var(--primary); padding-bottom: 10px;">EDUCATION</h2>
+                <div class="edu-box">
+                    <small>2024 - sekarang</small>
+                    <b>Universitas Negeri Surabaya</b>
+                </div>
+                <div class="edu-box">
+                    <small>2020 - 2023</small>
+                    <b>SMAN 1 Driyorejo</b>
+                </div>
+                <div class="edu-box">
+                    <small>2017 - 2020</small>
+                    <b>MTs Ihyaul Ulum</b>
+                </div>
+                <div class="edu-box">
+                    <small>2011 - 2017</small>
+                    <b>SDN 1 Banyuurip</b>
+                </div>
+            </div>
+
+            <div>
+                <h2 style="font-family: 'Space Grotesk'; font-size: 40px; margin-bottom: 40px; border-bottom: 2px solid var(--primary); padding-bottom: 10px;">EXPERIENCE</h2>
+                <div class="exp-item">
+                    <h4>Sie Sarpras Paskibra SMAN 1 Driyorejo</h4>
+                    <ul class="exp-list">
+                        <li>Bertanggung jawab dalam pengelolaan sarana dan prasarana kegiatan Paskibra secara terstruktur dan sistematis.</li>
+                        <li>Melaksanakan koordinasi dalam distribusi dan pengendalian penggunaan perlengkapan guna mendukung kelancaran kegiatan.</li>
+                    </ul>
+                </div>
+                <div class="exp-item">
+                    <h4>Enumerator SDGs Desa</h4>
+                    <ul class="exp-list">
+                        <li>Melaksanakan pendataan SDGs Desa melalui wawancara dan observasi lapangan secara sistematis sesuai instrumen yang telah ditetapkan.</li>
+                        <li>Mengumpulkan, memverifikasi, dan menginput data sosial, ekonomi, serta lingkungan desa secara akurat dan bertanggung jawab.</li>
+                        <li>Memastikan kevalidan dan kelengkapan data yang diperoleh dengan melakukan verifikasi serta klarifikasi kepada responden.</li>
+                    </ul>
+                </div>
+                <div class="exp-item">
+                    <h4>Enumerator Sensus Penduduk</h4>
+                    <ul class="exp-list">
+                        <li>Melakukan pendataan kependudukan dengan mengunjungi langsung responden dan menggali informasi sesuai pedoman sensus yang berlaku.</li>
+                        <li>Mengelola data hasil sensus mulai dari pencatatan hingga penginputan dengan memperhatikan ketelitian dan ketepatan waktu.</li>
+                        <li>Menjamin keakuratan data melalui pengecekan ulang serta menjaga kerahasiaan informasi responden selama proses pendataan berlangsung.</li>
+                    </ul>
+                </div>
+                <div class="exp-item">
+                    <h4>Pantarlih Pemilihan Gubernur dan Bupati</h4>
+                    <ul class="exp-list">
+                        <li>Melaksanakan pencocokan dan penelitian (coklit) data pemilih secara langsung untuk memastikan keakuratan data daftar pemilih.</li>
+                        <li>Memperbarui data pemilih berdasarkan kondisi faktual di lapangan, termasuk penambahan, perbaikan, dan penghapusan data.</li>
+                        <li>Menyusun dan melaporkan hasil pemutakhiran data pemilih kepada PPS secara tepat waktu dan bertanggung jawab.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="lets-connect">
+        <div>
+            <p style="font-weight: 700; font-size: 20px;">LET'S CONNECT!</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=itsputrinabilah@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/6283856207048" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://instagram.com/ptrinabilahh" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://twitter.com/putrinblh04" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        const textElement = document.getElementById('typing-text');
+        const textToType = "Transforming Education with Digital Innovation";
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentText = textToType;
+            
+            if (isDeleting) {
+                // Proses menghapus teks
+                textElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                // Proses mengetik teks
+                textElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            // Kecepatan mengetik
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                // Jika sudah selesai mengetik, tunggu sebentar lalu hapus
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                // Jika sudah bersih, mulai ketik lagi
+                isDeleting = false;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+        
+        document.addEventListener('DOMContentLoaded', type);
+    </script>
+
+</body>
+</html>
